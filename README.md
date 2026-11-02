@@ -29,13 +29,6 @@ A production-grade, simulated Overhead Persistent Infrared (OPIR) data processin
 
 ---
 
-## Visualizations & Results
-
-### 3D Kinematic Tracking & Error Magnitude
-![EKF Tracking Performance](ekf_tracking_performance.png)
-
----
-
 ## Installation & Usage
 1. Clone the repository and set up a Python virtual environment (`pyenv` recommended):
    ```bash
