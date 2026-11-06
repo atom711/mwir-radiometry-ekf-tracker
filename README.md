@@ -1,7 +1,7 @@
 # OPIR Simulated Sensor & Processing Pipeline
 
 ## Overview
-A production-grade, simulated Overhead Persistent Infrared (OPIR) data processing pipeline built for Geostationary Earth Orbit (GEO) staring sensor architectures (~35,786 km altitude). This repository demonstrates core technical proficiencies in MWIR radiometry, focal plane array (FPA) noise modeling, Two-Point Non-Uniformity Correction (NUC), hierarchical data serialization (NetCDF4), and 3D kinematics/Extended Kalman Filtering.
+Simulated Overhead Persistent Infrared (OPIR) data processing pipeline built for Geostationary Earth Orbit (GEO) staring sensor architectures (~35,786 km altitude). This repository demonstrates core technical proficiencies in MWIR radiometry, focal plane array (FPA) noise modeling, Two-Point Non-Uniformity Correction (NUC), hierarchical data serialization (NetCDF4), and 3D kinematics/Extended Kalman Filtering.
 
 ---
 
