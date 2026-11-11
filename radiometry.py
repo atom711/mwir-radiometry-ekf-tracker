@@ -10,12 +10,19 @@ K_B = 1.380649e-23  # Boltzmann's constant (J/K)
 
 def planck_wavelength(wavelength_m, temperature_k):
     """Computes spectral radiance of a blackbody per meter wavelength."""
+    """Translates physical temperature (Kelvin) into the exact spectral radiance distribution across a waveband."""
+    """Planck’s law governs the baseline photon output of a thermal target versus background clutter in a spectral band."""
     exponent = (H * C) / (wavelength_m * K_B * temperature_k)
-    return (2.0 * H * C**2 / (wavelength_m**5)) / (np.exp(exponent) - 1.0)
+    return (2.0 * H * C**2 / (wavelength_m**5)) / (np.exp(exponent) - 1.0) # Planck's Law
 
 def integrate_mwir_band(temp_k, emiss=1.0, lam_min=3.5e-6, lam_max=4.1e-6):
     """Integrates Planck's law over the MWIR spectral band (3.5 - 4.1 um)."""
-    radiance, _ = quad(planck_wavelength, lam_min, lam_max, args=(temp_k,))
+    """
+    Integrate spectral photon radiance (Planck's law divided by photon energy hc/lambda)
+    over the MWIR band to compute total discrete photon flux, 
+    converting radiant power into accumulated photo-electrons via quantum efficiency and integration time.
+    """
+    radiance, _ = quad(planck_wavelength, lam_min, lam_max, args=(temp_k,)) # mumerical integration used in lieu of analytical
     return emiss * radiance
 
 def simulate_fpa_frame(shape=(128, 128), scene_temp=300.0, t_int=0.01, dark_current=100.0, read_noise_sigma=5.0, gain_variation=0.05):
